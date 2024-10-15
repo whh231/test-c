@@ -1,22 +1,31 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include<stdio.h>
 int main() {
-	int y, m;
-	printf("请输入年份 月数\n");
-	scanf(" %d %d", &y, &m);
-	if (m == 2) {
-		if (y % 4 == 0 && y % 100 != 0)
-			printf("天数为29");
+	int a,b;
+	scanf("%d %d",&a,&b);
+	if (a >= 1900 && a <= 2030 && b <= 12 && b >= 1) {
+		if (a % 4 == 0 && a % 100 != 0||a%400==0) {
+			if (b == 2)
+				printf("29");
+			else if (b == 1 || b == 3 || b == 5 || b == 7 || b == 8 || b == 10 || b == 12)
+				printf("31");
+			else
+				printf("30");
+		}
+
 		else
-			printf("天数为28");
+		{
+			if (b == 2)
+				printf("28");
+			else if (b == 1 || b == 3 || b == 5 || b == 7 || b == 8 || b == 10 || b == 12)
+				printf("31");
+			else
+				printf("30");
+		}
 	}
 
-	else if (m == 1 || m == 3 || m == 5 || m == 7 || m == 8 || m == 10 || m == 12)
-		printf("天数为31");
-	else if (m >= 13)
-		printf("错误");
-	else
-		printf("天数为30");
 
+
+	
 	return 0;
 }
